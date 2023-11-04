@@ -1,0 +1,1437 @@
+// **************************************************************************
+// AutoRouteGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// AutoRouteGenerator
+// **************************************************************************
+//
+// ignore_for_file: type=lint
+
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:auto_route/auto_route.dart' as _i45;
+import 'package:flutter/material.dart' as _i46;
+
+import '../../api/network/model/auth/profile_setting_model/get_my_profile_model.dart'
+    as _i48;
+import '../../api/network/model/auth/profile_setting_model/get_profile_detail_model.dart'
+    as _i47;
+import '../../resume_added_screen.dart' as _i10;
+import '../../ui/auth/login_screen.dart' as _i3;
+import '../../ui/auth/signup_screen.dart' as _i4;
+import '../../ui/dashboard/dashboard_screen.dart' as _i2;
+import '../../ui/home/home_screen.dart' as _i26;
+import '../../ui/job/about_company_screen.dart' as _i21;
+import '../../ui/job/about_job_screen.dart' as _i20;
+import '../../ui/job/cv_upload_screen.dart' as _i5;
+import '../../ui/job/cv_uploaded_screen.dart' as _i6;
+import '../../ui/job/cv_uploaded_sucessfully_screen.dart' as _i7;
+import '../../ui/job/job_applied_screen.dart' as _i32;
+import '../../ui/job/job_description_screen.dart' as _i22;
+import '../../ui/job/job_filter_screen.dart' as _i18;
+import '../../ui/job/job_search_screen.dart' as _i17;
+import '../../ui/job/jobs_in_company_screen.dart' as _i23;
+import '../../ui/job/no_applied_job_screen.dart' as _i8;
+import '../../ui/job/no_result_found_screen.dart' as _i19;
+import '../../ui/job/no_saved_job_screen.dart' as _i34;
+import '../../ui/job/saved_job_screen.dart' as _i31;
+import '../../ui/job/your_application.dart' as _i39;
+import '../../ui/notification/no_notification_screen.dart' as _i24;
+import '../../ui/notification/notification_screen.dart' as _i25;
+import '../../ui/profile/settings/about_us.dart' as _i40;
+import '../../ui/profile/settings/contact_us_screen.dart' as _i41;
+import '../../ui/profile/settings/frequetnly_questions.dart' as _i42;
+import '../../ui/profile/settings/profile_settings/about_me.dart' as _i13;
+import '../../ui/profile/settings/profile_settings/about_me_screen.dart'
+    as _i44;
+import '../../ui/profile/settings/profile_settings/add_resume_screen.dart'
+    as _i9;
+import '../../ui/profile/settings/profile_settings/add_skill.dart' as _i14;
+import '../../ui/profile/settings/profile_settings/add_work_experience.dart'
+    as _i15;
+import '../../ui/profile/settings/profile_settings/education/add_degree_screen.dart'
+    as _i35;
+import '../../ui/profile/settings/profile_settings/education/add_education.dart'
+    as _i16;
+import '../../ui/profile/settings/profile_settings/education/field_of_study_screen.dart'
+    as _i37;
+import '../../ui/profile/settings/profile_settings/education/institute_name_screen.dart'
+    as _i36;
+import '../../ui/profile/settings/profile_settings/language/add_language.dart'
+    as _i28;
+import '../../ui/profile/settings/profile_settings/language/language.dart'
+    as _i27;
+import '../../ui/profile/settings/profile_settings/language/selected_language.dart'
+    as _i29;
+import '../../ui/profile/settings/profile_settings/profile_settings.dart'
+    as _i12;
+import '../../ui/profile/settings/profile_settings/training_Consultantation/Consultation.dart'
+    as _i38;
+import '../../ui/profile/settings/profile_settings/training_Consultantation/training_Consultantation.dart'
+    as _i30;
+import '../../ui/profile/settings/profile_settings/training_Consultantation/Training_course_details.dart'
+    as _i33;
+import '../../ui/profile/settings/settings.dart' as _i11;
+import '../../ui/profile/settings/terms_and_conditions.dart' as _i43;
+import '../../ui/splash/splash_screen.dart' as _i1;
+
+class AppRouter extends _i45.RootStackRouter {
+  AppRouter([_i46.GlobalKey<_i46.NavigatorState>? navigatorKey])
+      : super(navigatorKey);
+
+  @override
+  final Map<String, _i45.PageFactory> pagesMap = {
+    SplashScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i1.SplashScreen(),
+      );
+    },
+    DashboardScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<DashboardScreenRouteArgs>(
+          orElse: () => const DashboardScreenRouteArgs());
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: _i2.DashboardScreen(
+          key: args.key,
+          fromListCon: args.fromListCon,
+          fromConfirm: args.fromConfirm,
+          from: args.from,
+        ),
+      );
+    },
+    LoginScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i3.LoginScreen(),
+      );
+    },
+    SignUpScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i4.SignUpScreen(),
+      );
+    },
+    UploadCvScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<UploadCvScreenRouteArgs>(
+          orElse: () => const UploadCvScreenRouteArgs());
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: _i5.UploadCvScreen(
+          key: args.key,
+          title: args.title,
+          city: args.city,
+          company: args.company,
+          image: args.image,
+          Slug: args.Slug,
+          jobId: args.jobId,
+        ),
+      );
+    },
+    CvUploadedScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i6.CvUploadedScreen(),
+      );
+    },
+    CvUploadedSuccesfulScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i7.CvUploadedSuccesfulScreen(),
+      );
+    },
+    NoAppliedJobScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i8.NoAppliedJobScreen(),
+      );
+    },
+    AddResumeScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i9.AddResumeScreen(),
+      );
+    },
+    ResumeAddedScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i10.ResumeAddedScreen(),
+      );
+    },
+    SettingsScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i11.SettingsScreen(),
+      );
+    },
+    ProfileSettingsRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i12.ProfileSettings(),
+      );
+    },
+    AboutMeScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i13.AboutMeScreen(),
+      );
+    },
+    AddSkillRoute.name: (routeData) {
+      final args = routeData.argsAs<AddSkillRouteArgs>(
+          orElse: () => const AddSkillRouteArgs());
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: _i14.AddSkill(
+          key: args.key,
+          type: args.type,
+          skill: args.skill,
+          experience: args.experience,
+          skillid: args.skillid,
+          jobskillid: args.jobskillid,
+          jobexperienceid: args.jobexperienceid,
+        ),
+      );
+    },
+    WorkExperienceRoute.name: (routeData) {
+      final args = routeData.argsAs<WorkExperienceRouteArgs>(
+          orElse: () => const WorkExperienceRouteArgs());
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: _i15.WorkExperience(
+          type: args.type,
+          editWork: args.editWork,
+          experienceId: args.experienceId,
+        ),
+      );
+    },
+    AddEducationRoute.name: (routeData) {
+      final args = routeData.argsAs<AddEducationRouteArgs>(
+          orElse: () => const AddEducationRouteArgs());
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: _i16.AddEducation(
+          key: args.key,
+          type: args.type,
+          edit: args.edit,
+        ),
+      );
+    },
+    JobSearchScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i17.JobSearchScreen(),
+      );
+    },
+    JobFilterScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i18.JobFilterScreen(),
+      );
+    },
+    NoResultFoundScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i19.NoResultFoundScreen(),
+      );
+    },
+    AboutJobScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i20.AboutJobScreen(),
+      );
+    },
+    AboutCompanyScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i21.AboutCompanyScreen(),
+      );
+    },
+    JobDescriptionScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<JobDescriptionScreenRouteArgs>(
+          orElse: () => const JobDescriptionScreenRouteArgs());
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: _i22.JobDescriptionScreen(
+          key: args.key,
+          jobSlug: args.jobSlug,
+        ),
+      );
+    },
+    JobInCompanyScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<JobInCompanyScreenRouteArgs>(
+          orElse: () => const JobInCompanyScreenRouteArgs());
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: _i23.JobInCompanyScreen(
+          key: args.key,
+          slug: args.slug,
+        ),
+      );
+    },
+    NoNotificationScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i24.NoNotificationScreen(),
+      );
+    },
+    NotificationScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i25.NotificationScreen(),
+      );
+    },
+    HomeScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i26.HomeScreen(),
+      );
+    },
+    LanguageScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i27.LanguageScreen(),
+      );
+    },
+    AddLanguageRoute.name: (routeData) {
+      final args = routeData.argsAs<AddLanguageRouteArgs>(
+          orElse: () => const AddLanguageRouteArgs());
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: _i28.AddLanguage(
+          key: args.key,
+          type: args.type,
+          data: args.data,
+        ),
+      );
+    },
+    SelectedLanguageRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i29.SelectedLanguage(),
+      );
+    },
+    TrainingConsultationRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i30.TrainingConsultation(),
+      );
+    },
+    SavedJobScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i31.SavedJobScreen(),
+      );
+    },
+    JobAppliedScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i32.JobAppliedScreen(),
+      );
+    },
+    TrainingCourseDetailsRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i33.TrainingCourseDetails(),
+      );
+    },
+    NoSavedJobScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i34.NoSavedJobScreen(),
+      );
+    },
+    AddDegreeScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i35.AddDegreeScreen(),
+      );
+    },
+    InstituteNameScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i36.InstituteNameScreen(),
+      );
+    },
+    FieldOfStudyScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i37.FieldOfStudyScreen(),
+      );
+    },
+    ConsultationRoute.name: (routeData) {
+      final args = routeData.argsAs<ConsultationRouteArgs>(
+          orElse: () => const ConsultationRouteArgs());
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: _i38.Consultation(
+          key: args.key,
+          date: args.date,
+        ),
+      );
+    },
+    YourApplicationScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<YourApplicationScreenRouteArgs>(
+          orElse: () => const YourApplicationScreenRouteArgs());
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: _i39.YourApplicationScreen(key: args.key),
+      );
+    },
+    AboutUsScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i40.AboutUsScreen(),
+      );
+    },
+    ContactUsScreenRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i41.ContactUsScreen(),
+      );
+    },
+    FrequentlyAskedQuestionRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i42.FrequentlyAskedQuestion(),
+      );
+    },
+    TermsAndConditionsRoute.name: (routeData) {
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i43.TermsAndConditions(),
+      );
+    },
+    ProfileAboutMeRoute.name: (routeData) {
+      final args = routeData.argsAs<ProfileAboutMeRouteArgs>(
+          orElse: () => const ProfileAboutMeRouteArgs());
+      return _i45.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: _i44.ProfileAboutMe(
+          key: args.key,
+          mydata: args.mydata,
+        ),
+      );
+    },
+  };
+
+  @override
+  List<_i45.RouteConfig> get routes => [
+        _i45.RouteConfig(
+          SplashScreenRoute.name,
+          path: '/',
+        ),
+        _i45.RouteConfig(
+          DashboardScreenRoute.name,
+          path: '/dashboard-screen',
+        ),
+        _i45.RouteConfig(
+          LoginScreenRoute.name,
+          path: '/login-screen',
+        ),
+        _i45.RouteConfig(
+          SignUpScreenRoute.name,
+          path: '/sign-up-screen',
+        ),
+        _i45.RouteConfig(
+          UploadCvScreenRoute.name,
+          path: '/upload-cv-screen',
+        ),
+        _i45.RouteConfig(
+          CvUploadedScreenRoute.name,
+          path: '/cv-uploaded-screen',
+        ),
+        _i45.RouteConfig(
+          CvUploadedSuccesfulScreenRoute.name,
+          path: '/cv-uploaded-succesful-screen',
+        ),
+        _i45.RouteConfig(
+          NoAppliedJobScreenRoute.name,
+          path: '/no-applied-job-screen',
+        ),
+        _i45.RouteConfig(
+          AddResumeScreenRoute.name,
+          path: '/add-resume-screen',
+        ),
+        _i45.RouteConfig(
+          ResumeAddedScreenRoute.name,
+          path: '/resume-added-screen',
+        ),
+        _i45.RouteConfig(
+          SettingsScreenRoute.name,
+          path: '/settings-screen',
+        ),
+        _i45.RouteConfig(
+          ProfileSettingsRoute.name,
+          path: '/profile-settings',
+        ),
+        _i45.RouteConfig(
+          AboutMeScreenRoute.name,
+          path: '/about-me-screen',
+        ),
+        _i45.RouteConfig(
+          AddSkillRoute.name,
+          path: '/add-skill',
+        ),
+        _i45.RouteConfig(
+          WorkExperienceRoute.name,
+          path: '/work-experience',
+        ),
+        _i45.RouteConfig(
+          AddEducationRoute.name,
+          path: '/add-education',
+        ),
+        _i45.RouteConfig(
+          JobSearchScreenRoute.name,
+          path: '/job-search-screen',
+        ),
+        _i45.RouteConfig(
+          JobFilterScreenRoute.name,
+          path: '/job-filter-screen',
+        ),
+        _i45.RouteConfig(
+          NoResultFoundScreenRoute.name,
+          path: '/no-result-found-screen',
+        ),
+        _i45.RouteConfig(
+          AboutJobScreenRoute.name,
+          path: '/about-job-screen',
+        ),
+        _i45.RouteConfig(
+          AboutCompanyScreenRoute.name,
+          path: '/about-company-screen',
+        ),
+        _i45.RouteConfig(
+          JobDescriptionScreenRoute.name,
+          path: '/job-description-screen',
+        ),
+        _i45.RouteConfig(
+          JobInCompanyScreenRoute.name,
+          path: '/job-in-company-screen',
+        ),
+        _i45.RouteConfig(
+          NoNotificationScreenRoute.name,
+          path: '/no-notification-screen',
+        ),
+        _i45.RouteConfig(
+          NotificationScreenRoute.name,
+          path: '/notification-screen',
+        ),
+        _i45.RouteConfig(
+          HomeScreenRoute.name,
+          path: '/home-screen',
+        ),
+        _i45.RouteConfig(
+          LanguageScreenRoute.name,
+          path: '/language-screen',
+        ),
+        _i45.RouteConfig(
+          AddLanguageRoute.name,
+          path: '/add-language',
+        ),
+        _i45.RouteConfig(
+          SelectedLanguageRoute.name,
+          path: '/selected-language',
+        ),
+        _i45.RouteConfig(
+          TrainingConsultationRoute.name,
+          path: '/training-consultantation',
+        ),
+        _i45.RouteConfig(
+          SavedJobScreenRoute.name,
+          path: '/saved-job-screen',
+        ),
+        _i45.RouteConfig(
+          JobAppliedScreenRoute.name,
+          path: '/job-applied-screen',
+        ),
+        _i45.RouteConfig(
+          TrainingCourseDetailsRoute.name,
+          path: '/training-course-details',
+        ),
+        _i45.RouteConfig(
+          NoSavedJobScreenRoute.name,
+          path: '/no-saved-job-screen',
+        ),
+        _i45.RouteConfig(
+          AddDegreeScreenRoute.name,
+          path: '/add-degree-screen',
+        ),
+        _i45.RouteConfig(
+          InstituteNameScreenRoute.name,
+          path: '/institute-name-screen',
+        ),
+        _i45.RouteConfig(
+          FieldOfStudyScreenRoute.name,
+          path: '/field-of-study-screen',
+        ),
+        _i45.RouteConfig(
+          ConsultationRoute.name,
+          path: '/Consultation',
+        ),
+        _i45.RouteConfig(
+          YourApplicationScreenRoute.name,
+          path: '/your-application-screen',
+        ),
+        _i45.RouteConfig(
+          AboutUsScreenRoute.name,
+          path: '/about-us-screen',
+        ),
+        _i45.RouteConfig(
+          ContactUsScreenRoute.name,
+          path: '/contact-us-screen',
+        ),
+        _i45.RouteConfig(
+          FrequentlyAskedQuestionRoute.name,
+          path: '/frequently-asked-question',
+        ),
+        _i45.RouteConfig(
+          TermsAndConditionsRoute.name,
+          path: '/terms-and-conditions',
+        ),
+        _i45.RouteConfig(
+          ProfileAboutMeRoute.name,
+          path: '/profile-about-me',
+        ),
+      ];
+}
+
+/// generated route for
+/// [_i1.SplashScreen]
+class SplashScreenRoute extends _i45.PageRouteInfo<void> {
+  const SplashScreenRoute()
+      : super(
+          SplashScreenRoute.name,
+          path: '/',
+        );
+
+  static const String name = 'SplashScreenRoute';
+}
+
+/// generated route for
+/// [_i2.DashboardScreen]
+class DashboardScreenRoute
+    extends _i45.PageRouteInfo<DashboardScreenRouteArgs> {
+  DashboardScreenRoute({
+    _i46.Key? key,
+    bool? fromListCon = false,
+    bool? fromConfirm = false,
+    int? from,
+  }) : super(
+          DashboardScreenRoute.name,
+          path: '/dashboard-screen',
+          args: DashboardScreenRouteArgs(
+            key: key,
+            fromListCon: fromListCon,
+            fromConfirm: fromConfirm,
+            from: from,
+          ),
+        );
+
+  static const String name = 'DashboardScreenRoute';
+}
+
+class DashboardScreenRouteArgs {
+  const DashboardScreenRouteArgs({
+    this.key,
+    this.fromListCon = false,
+    this.fromConfirm = false,
+    this.from,
+  });
+
+  final _i46.Key? key;
+
+  final bool? fromListCon;
+
+  final bool? fromConfirm;
+
+  final int? from;
+
+  @override
+  String toString() {
+    return 'DashboardScreenRouteArgs{key: $key, fromListCon: $fromListCon, fromConfirm: $fromConfirm, from: $from}';
+  }
+}
+
+/// generated route for
+/// [_i3.LoginScreen]
+class LoginScreenRoute extends _i45.PageRouteInfo<void> {
+  const LoginScreenRoute()
+      : super(
+          LoginScreenRoute.name,
+          path: '/login-screen',
+        );
+
+  static const String name = 'LoginScreenRoute';
+}
+
+/// generated route for
+/// [_i4.SignUpScreen]
+class SignUpScreenRoute extends _i45.PageRouteInfo<void> {
+  const SignUpScreenRoute()
+      : super(
+          SignUpScreenRoute.name,
+          path: '/sign-up-screen',
+        );
+
+  static const String name = 'SignUpScreenRoute';
+}
+
+/// generated route for
+/// [_i5.UploadCvScreen]
+class UploadCvScreenRoute extends _i45.PageRouteInfo<UploadCvScreenRouteArgs> {
+  UploadCvScreenRoute({
+    _i46.Key? key,
+    String? title,
+    String? city,
+    String? company,
+    String? image,
+    String? Slug,
+    String? jobId,
+  }) : super(
+          UploadCvScreenRoute.name,
+          path: '/upload-cv-screen',
+          args: UploadCvScreenRouteArgs(
+            key: key,
+            title: title,
+            city: city,
+            company: company,
+            image: image,
+            Slug: Slug,
+            jobId: jobId,
+          ),
+        );
+
+  static const String name = 'UploadCvScreenRoute';
+}
+
+class UploadCvScreenRouteArgs {
+  const UploadCvScreenRouteArgs({
+    this.key,
+    this.title,
+    this.city,
+    this.company,
+    this.image,
+    this.Slug,
+    this.jobId,
+  });
+
+  final _i46.Key? key;
+
+  final String? title;
+
+  final String? city;
+
+  final String? company;
+
+  final String? image;
+
+  final String? Slug;
+
+  final String? jobId;
+
+  @override
+  String toString() {
+    return 'UploadCvScreenRouteArgs{key: $key, title: $title, city: $city, company: $company, image: $image, Slug: $Slug, jobId: $jobId}';
+  }
+}
+
+/// generated route for
+/// [_i6.CvUploadedScreen]
+class CvUploadedScreenRoute extends _i45.PageRouteInfo<void> {
+  const CvUploadedScreenRoute()
+      : super(
+          CvUploadedScreenRoute.name,
+          path: '/cv-uploaded-screen',
+        );
+
+  static const String name = 'CvUploadedScreenRoute';
+}
+
+/// generated route for
+/// [_i7.CvUploadedSuccesfulScreen]
+class CvUploadedSuccesfulScreenRoute extends _i45.PageRouteInfo<void> {
+  const CvUploadedSuccesfulScreenRoute()
+      : super(
+          CvUploadedSuccesfulScreenRoute.name,
+          path: '/cv-uploaded-succesful-screen',
+        );
+
+  static const String name = 'CvUploadedSuccesfulScreenRoute';
+}
+
+/// generated route for
+/// [_i8.NoAppliedJobScreen]
+class NoAppliedJobScreenRoute extends _i45.PageRouteInfo<void> {
+  const NoAppliedJobScreenRoute()
+      : super(
+          NoAppliedJobScreenRoute.name,
+          path: '/no-applied-job-screen',
+        );
+
+  static const String name = 'NoAppliedJobScreenRoute';
+}
+
+/// generated route for
+/// [_i9.AddResumeScreen]
+class AddResumeScreenRoute extends _i45.PageRouteInfo<void> {
+  const AddResumeScreenRoute()
+      : super(
+          AddResumeScreenRoute.name,
+          path: '/add-resume-screen',
+        );
+
+  static const String name = 'AddResumeScreenRoute';
+}
+
+/// generated route for
+/// [_i10.ResumeAddedScreen]
+class ResumeAddedScreenRoute extends _i45.PageRouteInfo<void> {
+  const ResumeAddedScreenRoute()
+      : super(
+          ResumeAddedScreenRoute.name,
+          path: '/resume-added-screen',
+        );
+
+  static const String name = 'ResumeAddedScreenRoute';
+}
+
+/// generated route for
+/// [_i11.SettingsScreen]
+class SettingsScreenRoute extends _i45.PageRouteInfo<void> {
+  const SettingsScreenRoute()
+      : super(
+          SettingsScreenRoute.name,
+          path: '/settings-screen',
+        );
+
+  static const String name = 'SettingsScreenRoute';
+}
+
+/// generated route for
+/// [_i12.ProfileSettings]
+class ProfileSettingsRoute extends _i45.PageRouteInfo<void> {
+  const ProfileSettingsRoute()
+      : super(
+          ProfileSettingsRoute.name,
+          path: '/profile-settings',
+        );
+
+  static const String name = 'ProfileSettingsRoute';
+}
+
+/// generated route for
+/// [_i13.AboutMeScreen]
+class AboutMeScreenRoute extends _i45.PageRouteInfo<void> {
+  const AboutMeScreenRoute()
+      : super(
+          AboutMeScreenRoute.name,
+          path: '/about-me-screen',
+        );
+
+  static const String name = 'AboutMeScreenRoute';
+}
+
+/// generated route for
+/// [_i14.AddSkill]
+class AddSkillRoute extends _i45.PageRouteInfo<AddSkillRouteArgs> {
+  AddSkillRoute({
+    _i46.Key? key,
+    String? type,
+    String? skill,
+    String? experience,
+    num? skillid,
+    num? jobskillid,
+    num? jobexperienceid,
+  }) : super(
+          AddSkillRoute.name,
+          path: '/add-skill',
+          args: AddSkillRouteArgs(
+            key: key,
+            type: type,
+            skill: skill,
+            experience: experience,
+            skillid: skillid,
+            jobskillid: jobskillid,
+            jobexperienceid: jobexperienceid,
+          ),
+        );
+
+  static const String name = 'AddSkillRoute';
+}
+
+class AddSkillRouteArgs {
+  const AddSkillRouteArgs({
+    this.key,
+    this.type,
+    this.skill,
+    this.experience,
+    this.skillid,
+    this.jobskillid,
+    this.jobexperienceid,
+  });
+
+  final _i46.Key? key;
+
+  final String? type;
+
+  final String? skill;
+
+  final String? experience;
+
+  final num? skillid;
+
+  final num? jobskillid;
+
+  final num? jobexperienceid;
+
+  @override
+  String toString() {
+    return 'AddSkillRouteArgs{key: $key, type: $type, skill: $skill, experience: $experience, skillid: $skillid, jobskillid: $jobskillid, jobexperienceid: $jobexperienceid}';
+  }
+}
+
+/// generated route for
+/// [_i15.WorkExperience]
+class WorkExperienceRoute extends _i45.PageRouteInfo<WorkExperienceRouteArgs> {
+  WorkExperienceRoute({
+    String? type,
+    _i47.ProfileExperienceBean? editWork,
+    String? experienceId,
+  }) : super(
+          WorkExperienceRoute.name,
+          path: '/work-experience',
+          args: WorkExperienceRouteArgs(
+            type: type,
+            editWork: editWork,
+            experienceId: experienceId,
+          ),
+        );
+
+  static const String name = 'WorkExperienceRoute';
+}
+
+class WorkExperienceRouteArgs {
+  const WorkExperienceRouteArgs({
+    this.type,
+    this.editWork,
+    this.experienceId,
+  });
+
+  final String? type;
+
+  final _i47.ProfileExperienceBean? editWork;
+
+  final String? experienceId;
+
+  @override
+  String toString() {
+    return 'WorkExperienceRouteArgs{type: $type, editWork: $editWork, experienceId: $experienceId}';
+  }
+}
+
+/// generated route for
+/// [_i16.AddEducation]
+class AddEducationRoute extends _i45.PageRouteInfo<AddEducationRouteArgs> {
+  AddEducationRoute({
+    _i46.Key? key,
+    String? type,
+    _i47.ProfileEducationBean? edit,
+  }) : super(
+          AddEducationRoute.name,
+          path: '/add-education',
+          args: AddEducationRouteArgs(
+            key: key,
+            type: type,
+            edit: edit,
+          ),
+        );
+
+  static const String name = 'AddEducationRoute';
+}
+
+class AddEducationRouteArgs {
+  const AddEducationRouteArgs({
+    this.key,
+    this.type,
+    this.edit,
+  });
+
+  final _i46.Key? key;
+
+  final String? type;
+
+  final _i47.ProfileEducationBean? edit;
+
+  @override
+  String toString() {
+    return 'AddEducationRouteArgs{key: $key, type: $type, edit: $edit}';
+  }
+}
+
+/// generated route for
+/// [_i17.JobSearchScreen]
+class JobSearchScreenRoute extends _i45.PageRouteInfo<void> {
+  const JobSearchScreenRoute()
+      : super(
+          JobSearchScreenRoute.name,
+          path: '/job-search-screen',
+        );
+
+  static const String name = 'JobSearchScreenRoute';
+}
+
+/// generated route for
+/// [_i18.JobFilterScreen]
+class JobFilterScreenRoute extends _i45.PageRouteInfo<void> {
+  const JobFilterScreenRoute()
+      : super(
+          JobFilterScreenRoute.name,
+          path: '/job-filter-screen',
+        );
+
+  static const String name = 'JobFilterScreenRoute';
+}
+
+/// generated route for
+/// [_i19.NoResultFoundScreen]
+class NoResultFoundScreenRoute extends _i45.PageRouteInfo<void> {
+  const NoResultFoundScreenRoute()
+      : super(
+          NoResultFoundScreenRoute.name,
+          path: '/no-result-found-screen',
+        );
+
+  static const String name = 'NoResultFoundScreenRoute';
+}
+
+/// generated route for
+/// [_i20.AboutJobScreen]
+class AboutJobScreenRoute extends _i45.PageRouteInfo<void> {
+  const AboutJobScreenRoute()
+      : super(
+          AboutJobScreenRoute.name,
+          path: '/about-job-screen',
+        );
+
+  static const String name = 'AboutJobScreenRoute';
+}
+
+/// generated route for
+/// [_i21.AboutCompanyScreen]
+class AboutCompanyScreenRoute extends _i45.PageRouteInfo<void> {
+  const AboutCompanyScreenRoute()
+      : super(
+          AboutCompanyScreenRoute.name,
+          path: '/about-company-screen',
+        );
+
+  static const String name = 'AboutCompanyScreenRoute';
+}
+
+/// generated route for
+/// [_i22.JobDescriptionScreen]
+class JobDescriptionScreenRoute
+    extends _i45.PageRouteInfo<JobDescriptionScreenRouteArgs> {
+  JobDescriptionScreenRoute({
+    _i46.Key? key,
+    String? jobSlug,
+  }) : super(
+          JobDescriptionScreenRoute.name,
+          path: '/job-description-screen',
+          args: JobDescriptionScreenRouteArgs(
+            key: key,
+            jobSlug: jobSlug,
+          ),
+        );
+
+  static const String name = 'JobDescriptionScreenRoute';
+}
+
+class JobDescriptionScreenRouteArgs {
+  const JobDescriptionScreenRouteArgs({
+    this.key,
+    this.jobSlug,
+  });
+
+  final _i46.Key? key;
+
+  final String? jobSlug;
+
+  @override
+  String toString() {
+    return 'JobDescriptionScreenRouteArgs{key: $key, jobSlug: $jobSlug}';
+  }
+}
+
+/// generated route for
+/// [_i23.JobInCompanyScreen]
+class JobInCompanyScreenRoute
+    extends _i45.PageRouteInfo<JobInCompanyScreenRouteArgs> {
+  JobInCompanyScreenRoute({
+    _i46.Key? key,
+    String? slug,
+  }) : super(
+          JobInCompanyScreenRoute.name,
+          path: '/job-in-company-screen',
+          args: JobInCompanyScreenRouteArgs(
+            key: key,
+            slug: slug,
+          ),
+        );
+
+  static const String name = 'JobInCompanyScreenRoute';
+}
+
+class JobInCompanyScreenRouteArgs {
+  const JobInCompanyScreenRouteArgs({
+    this.key,
+    this.slug,
+  });
+
+  final _i46.Key? key;
+
+  final String? slug;
+
+  @override
+  String toString() {
+    return 'JobInCompanyScreenRouteArgs{key: $key, slug: $slug}';
+  }
+}
+
+/// generated route for
+/// [_i24.NoNotificationScreen]
+class NoNotificationScreenRoute extends _i45.PageRouteInfo<void> {
+  const NoNotificationScreenRoute()
+      : super(
+          NoNotificationScreenRoute.name,
+          path: '/no-notification-screen',
+        );
+
+  static const String name = 'NoNotificationScreenRoute';
+}
+
+/// generated route for
+/// [_i25.NotificationScreen]
+class NotificationScreenRoute extends _i45.PageRouteInfo<void> {
+  const NotificationScreenRoute()
+      : super(
+          NotificationScreenRoute.name,
+          path: '/notification-screen',
+        );
+
+  static const String name = 'NotificationScreenRoute';
+}
+
+/// generated route for
+/// [_i26.HomeScreen]
+class HomeScreenRoute extends _i45.PageRouteInfo<void> {
+  const HomeScreenRoute()
+      : super(
+          HomeScreenRoute.name,
+          path: '/home-screen',
+        );
+
+  static const String name = 'HomeScreenRoute';
+}
+
+/// generated route for
+/// [_i27.LanguageScreen]
+class LanguageScreenRoute extends _i45.PageRouteInfo<void> {
+  const LanguageScreenRoute()
+      : super(
+          LanguageScreenRoute.name,
+          path: '/language-screen',
+        );
+
+  static const String name = 'LanguageScreenRoute';
+}
+
+/// generated route for
+/// [_i28.AddLanguage]
+class AddLanguageRoute extends _i45.PageRouteInfo<AddLanguageRouteArgs> {
+  AddLanguageRoute({
+    _i46.Key? key,
+    String? type,
+    _i47.ProfileLanguageBean? data,
+  }) : super(
+          AddLanguageRoute.name,
+          path: '/add-language',
+          args: AddLanguageRouteArgs(
+            key: key,
+            type: type,
+            data: data,
+          ),
+        );
+
+  static const String name = 'AddLanguageRoute';
+}
+
+class AddLanguageRouteArgs {
+  const AddLanguageRouteArgs({
+    this.key,
+    this.type,
+    this.data,
+  });
+
+  final _i46.Key? key;
+
+  final String? type;
+
+  final _i47.ProfileLanguageBean? data;
+
+  @override
+  String toString() {
+    return 'AddLanguageRouteArgs{key: $key, type: $type, data: $data}';
+  }
+}
+
+/// generated route for
+/// [_i29.SelectedLanguage]
+class SelectedLanguageRoute extends _i45.PageRouteInfo<void> {
+  const SelectedLanguageRoute()
+      : super(
+          SelectedLanguageRoute.name,
+          path: '/selected-language',
+        );
+
+  static const String name = 'SelectedLanguageRoute';
+}
+
+/// generated route for
+/// [_i30.TrainingConsultation]
+class TrainingConsultationRoute extends _i45.PageRouteInfo<void> {
+  const TrainingConsultationRoute()
+      : super(
+          TrainingConsultationRoute.name,
+          path: '/training-consultantation',
+        );
+
+  static const String name = 'TrainingConsultationRoute';
+}
+
+/// generated route for
+/// [_i31.SavedJobScreen]
+class SavedJobScreenRoute extends _i45.PageRouteInfo<void> {
+  const SavedJobScreenRoute()
+      : super(
+          SavedJobScreenRoute.name,
+          path: '/saved-job-screen',
+        );
+
+  static const String name = 'SavedJobScreenRoute';
+}
+
+/// generated route for
+/// [_i32.JobAppliedScreen]
+class JobAppliedScreenRoute extends _i45.PageRouteInfo<void> {
+  const JobAppliedScreenRoute()
+      : super(
+          JobAppliedScreenRoute.name,
+          path: '/job-applied-screen',
+        );
+
+  static const String name = 'JobAppliedScreenRoute';
+}
+
+/// generated route for
+/// [_i33.TrainingCourseDetails]
+class TrainingCourseDetailsRoute extends _i45.PageRouteInfo<void> {
+  const TrainingCourseDetailsRoute()
+      : super(
+          TrainingCourseDetailsRoute.name,
+          path: '/training-course-details',
+        );
+
+  static const String name = 'TrainingCourseDetailsRoute';
+}
+
+/// generated route for
+/// [_i34.NoSavedJobScreen]
+class NoSavedJobScreenRoute extends _i45.PageRouteInfo<void> {
+  const NoSavedJobScreenRoute()
+      : super(
+          NoSavedJobScreenRoute.name,
+          path: '/no-saved-job-screen',
+        );
+
+  static const String name = 'NoSavedJobScreenRoute';
+}
+
+/// generated route for
+/// [_i35.AddDegreeScreen]
+class AddDegreeScreenRoute extends _i45.PageRouteInfo<void> {
+  const AddDegreeScreenRoute()
+      : super(
+          AddDegreeScreenRoute.name,
+          path: '/add-degree-screen',
+        );
+
+  static const String name = 'AddDegreeScreenRoute';
+}
+
+/// generated route for
+/// [_i36.InstituteNameScreen]
+class InstituteNameScreenRoute extends _i45.PageRouteInfo<void> {
+  const InstituteNameScreenRoute()
+      : super(
+          InstituteNameScreenRoute.name,
+          path: '/institute-name-screen',
+        );
+
+  static const String name = 'InstituteNameScreenRoute';
+}
+
+/// generated route for
+/// [_i37.FieldOfStudyScreen]
+class FieldOfStudyScreenRoute extends _i45.PageRouteInfo<void> {
+  const FieldOfStudyScreenRoute()
+      : super(
+          FieldOfStudyScreenRoute.name,
+          path: '/field-of-study-screen',
+        );
+
+  static const String name = 'FieldOfStudyScreenRoute';
+}
+
+/// generated route for
+/// [_i38.Consultation]
+class ConsultationRoute extends _i45.PageRouteInfo<ConsultationRouteArgs> {
+  ConsultationRoute({
+    _i46.Key? key,
+    DateTime? date,
+  }) : super(
+          ConsultationRoute.name,
+          path: '/Consultation',
+          args: ConsultationRouteArgs(
+            key: key,
+            date: date,
+          ),
+        );
+
+  static const String name = 'ConsultationRoute';
+}
+
+class ConsultationRouteArgs {
+  const ConsultationRouteArgs({
+    this.key,
+    this.date,
+  });
+
+  final _i46.Key? key;
+
+  final DateTime? date;
+
+  @override
+  String toString() {
+    return 'ConsultationRouteArgs{key: $key, date: $date}';
+  }
+}
+
+/// generated route for
+/// [_i39.YourApplicationScreen]
+class YourApplicationScreenRoute
+    extends _i45.PageRouteInfo<YourApplicationScreenRouteArgs> {
+  YourApplicationScreenRoute({_i46.Key? key})
+      : super(
+          YourApplicationScreenRoute.name,
+          path: '/your-application-screen',
+          args: YourApplicationScreenRouteArgs(key: key),
+        );
+
+  static const String name = 'YourApplicationScreenRoute';
+}
+
+class YourApplicationScreenRouteArgs {
+  const YourApplicationScreenRouteArgs({this.key});
+
+  final _i46.Key? key;
+
+  @override
+  String toString() {
+    return 'YourApplicationScreenRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [_i40.AboutUsScreen]
+class AboutUsScreenRoute extends _i45.PageRouteInfo<void> {
+  const AboutUsScreenRoute()
+      : super(
+          AboutUsScreenRoute.name,
+          path: '/about-us-screen',
+        );
+
+  static const String name = 'AboutUsScreenRoute';
+}
+
+/// generated route for
+/// [_i41.ContactUsScreen]
+class ContactUsScreenRoute extends _i45.PageRouteInfo<void> {
+  const ContactUsScreenRoute()
+      : super(
+          ContactUsScreenRoute.name,
+          path: '/contact-us-screen',
+        );
+
+  static const String name = 'ContactUsScreenRoute';
+}
+
+/// generated route for
+/// [_i42.FrequentlyAskedQuestion]
+class FrequentlyAskedQuestionRoute extends _i45.PageRouteInfo<void> {
+  const FrequentlyAskedQuestionRoute()
+      : super(
+          FrequentlyAskedQuestionRoute.name,
+          path: '/frequently-asked-question',
+        );
+
+  static const String name = 'FrequentlyAskedQuestionRoute';
+}
+
+/// generated route for
+/// [_i43.TermsAndConditions]
+class TermsAndConditionsRoute extends _i45.PageRouteInfo<void> {
+  const TermsAndConditionsRoute()
+      : super(
+          TermsAndConditionsRoute.name,
+          path: '/terms-and-conditions',
+        );
+
+  static const String name = 'TermsAndConditionsRoute';
+}
+
+/// generated route for
+/// [_i44.ProfileAboutMe]
+class ProfileAboutMeRoute extends _i45.PageRouteInfo<ProfileAboutMeRouteArgs> {
+  ProfileAboutMeRoute({
+    _i46.Key? key,
+    _i48.DataBean? mydata,
+  }) : super(
+          ProfileAboutMeRoute.name,
+          path: '/profile-about-me',
+          args: ProfileAboutMeRouteArgs(
+            key: key,
+            mydata: mydata,
+          ),
+        );
+
+  static const String name = 'ProfileAboutMeRoute';
+}
+
+class ProfileAboutMeRouteArgs {
+  const ProfileAboutMeRouteArgs({
+    this.key,
+    this.mydata,
+  });
+
+  final _i46.Key? key;
+
+  final _i48.DataBean? mydata;
+
+  @override
+  String toString() {
+    return 'ProfileAboutMeRouteArgs{key: $key, mydata: $mydata}';
+  }
+}
