@@ -78,7 +78,7 @@ class _OrderDetailEditScreenState extends State<OrderDetailEditScreen> {
                   ),
                   SizedBox(height: 5.h,),
                   SizedBox(
-                    height: totalItemList.length >2?totalItemList.length*45:30,
+                    height: (totalItemList.length??0) >1?totalItemList.length*40.h.h:35.h,
                     child: ListView.builder(
                       padding: EdgeInsets.zero,
                       itemCount: totalItemList.length /*viewBookingModel?.data?.itemList?.length*/,

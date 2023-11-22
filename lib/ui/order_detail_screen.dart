@@ -68,7 +68,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                   ),
                   SizedBox(height: 5.h,),
                   SizedBox(
-                    height: ( viewBookingModel?.data?.itemList?.length??0)>2?(viewBookingModel?.data?.itemList?.length)!*30:35,
+                    height: ( viewBookingModel?.data?.itemList?.length??0)>1?(viewBookingModel?.data?.itemList?.length??0)*35:35,
                     child: ListView.builder(
                       padding: EdgeInsets.zero,
                       itemCount: viewBookingModel?.data?.itemList?.length,
