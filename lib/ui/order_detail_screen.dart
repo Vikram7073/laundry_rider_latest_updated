@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:laundry_rider/bloc/booking/view_booking_bloc.dart';
+import 'package:laundry_rider/common/constant/shimmer/list_shimmer_effect.dart';
 import 'package:laundry_rider/ui/order_detail_edit_screen.dart';
 
 import '../common/constant/color_constants.dart';
@@ -11,9 +12,7 @@ import '../model/booking/view_booking_model.dart';
 class OrderDetailScreen extends StatefulWidget {
   int ? bookId;
   String? type;
-
    OrderDetailScreen({Key? key,this.bookId,this.type}) : super(key: key);
-
   @override
   State<OrderDetailScreen> createState() => _OrderDetailScreenState();
 }
@@ -36,7 +35,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
           child: CustomAppBar(
             actionIcon: [
              (widget.type=="Accept" || widget.type=="Ongoing")? IconButton(onPressed: (){
-               Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderDetailEditScreen(bookId: widget.bookId,)));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderDetailEditScreen(bookId: widget.bookId,)));
              }, icon: const Icon(Icons.edit)):const SizedBox(),
               SizedBox(width: 10.w,)],
             title:  Text("Order Detail",style:
@@ -48,7 +47,8 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
           }
         },
         builder: (context,state){
-          return Padding(
+          return viewBookingModel != null?
+          Padding(
             padding:  EdgeInsets.symmetric(horizontal: 15.w,vertical: 15.h),
             child: SingleChildScrollView(
               child: Column(
@@ -60,15 +60,17 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                       children: [
                         Text("Items ",style: AppStyles.backGround16Text,),
                         const Spacer(),
-                        Text("Quantity ",style: AppStyles.backGround16Text),
-                        SizedBox(width: 15.w,),
+                        Text("Piece ",style: AppStyles.backGround16Text),
+                        SizedBox(width: 20.w,),
+                        Text("Kg ",style: AppStyles.backGround16Text),
+                        SizedBox(width: 25.w,),
                         Text("Price ",style: AppStyles.backGround16Text),
                       ],
                     ),
                   ),
                   SizedBox(height: 5.h,),
                   SizedBox(
-                    height: ( viewBookingModel?.data?.itemList?.length??0)>1?(viewBookingModel?.data?.itemList?.length??0)*35:35,
+                    height: ( viewBookingModel?.data?.itemList?.length??0)>1?(viewBookingModel?.data?.itemList?.length??0)*35:45,
                     child: ListView.builder(
                       padding: EdgeInsets.zero,
                       itemCount: viewBookingModel?.data?.itemList?.length,
@@ -79,12 +81,30 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                         return    Padding(
                           padding:  EdgeInsets.only(bottom: 8.h,left: 8.w,right: 10.w),
                           child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text(viewBooking?.productName??"",style: AppStyles.backGround14Text.copyWith(fontSize: 14.sp),),
+                              SizedBox(
+                                  width: 150.w,
+                                  child: Text(viewBooking?.productName??"",maxLines: 2,overflow: TextOverflow.ellipsis,
+                                    style: AppStyles.backGround14Text.copyWith(fontSize: 14.sp),)),
                               const Spacer(),
-                              Text(viewBooking?.qty.toString()??"",style: AppStyles.backGround14Text.copyWith(fontSize: 14.sp),),
-                              SizedBox(width: 35.w,),
-                              Text(viewBooking?.price.toString()??"",style: AppStyles.backGround14Text.copyWith(fontSize: 14.sp),),
+                              SizedBox(
+                                  width: 35.w,
+                                  child: Text(viewBooking?.qty.toString()??"",
+                                    textAlign: TextAlign.right,
+                                    style: AppStyles.backGround14Text.copyWith(fontSize: 14.sp),)),
+                             // SizedBox(width: 15.w,),
+                              SizedBox(
+                                  width: 45.w,
+                                  child: Text(viewBooking?.weight.toString()??"",
+                                    textAlign: TextAlign.right,
+                                    style: AppStyles.backGround14Text.copyWith(fontSize: 14.sp),)),
+                              // SizedBox(width: 75.w,),
+                              SizedBox(
+                                  width: 80.w,
+                                  child: Text(viewBooking?.price.toString()??"",
+                                    textAlign: TextAlign.right,
+                                    style: AppStyles.backGround14Text.copyWith(fontSize: 14.sp),)),
                             ],
                           ),
                         );
@@ -105,7 +125,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text("Delivered on",style: AppStyles.backGround14Text),
-                              Text(viewBookingModel?.data?.deliverOn.toString()??"",style: AppStyles.backGround14Text,),
+                              Text(viewBookingModel?.data?.orderStatus?.deliveryDate.toString()??"",style: AppStyles.backGround14Text,),
                             ],
                           ),
                           SizedBox(height: 5.h,),
@@ -113,7 +133,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text("Order id",style: AppStyles.backGround14Text),
-                              Text(viewBookingModel?.data?.bookId.toString()??"",style: AppStyles.backGround14Text,),
+                              Text(viewBookingModel?.data?.orderStatus?.bookingId.toString()??"",style: AppStyles.backGround14Text,),
                             ],
                           ),
                           SizedBox(height: 5.h,),
@@ -121,7 +141,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text("Order Date ",style: AppStyles.backGround14Text),
-                              Text(viewBookingModel?.data?.orderDate.toString()??"",style: AppStyles.backGround14Text,),
+                              Text(viewBookingModel?.data?.orderStatus?.orderDate.toString()??"",style: AppStyles.backGround14Text,),
                             ],
                           ),
                           SizedBox(height: 5.h,),
@@ -129,7 +149,15 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text("Total Product",style: AppStyles.backGround14Text),
-                              Text(viewBookingModel?.data?.totalProduct.toString()??"",style: AppStyles.backGround14Text,),
+                              Text(viewBookingModel?.data?.orderStatus?.totalProduct.toString()??"",style: AppStyles.backGround14Text,),
+                            ],
+                          ),
+                          SizedBox(height: 5.h,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("GST",style: AppStyles.backGround14Text),
+                              Text("₹ ${viewBookingModel?.data?.orderStatus?.gst.toString()??""}",style: AppStyles.backGround14Text,),
                             ],
                           ),
                           SizedBox(height: 5.h,),
@@ -137,7 +165,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text("Invoice Amount",style: AppStyles.backGround14Text),
-                              Text("₹ ${viewBookingModel?.data?.invoiceAmount.toString()??""}",style: AppStyles.backGround14Text,),
+                              Text("₹ ${viewBookingModel?.data?.orderStatus?.invoiceAmount.toString()??""}",style: AppStyles.backGround14Text,),
                             ],
                           ),
                           SizedBox(height: 5.h,),
@@ -145,7 +173,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text("Discount Amount",style: AppStyles.backGround14Text),
-                              Text("₹ ${viewBookingModel?.data?.discount.toString()??""}",style: AppStyles.backGround14Text,),
+                              Text("₹ ${viewBookingModel?.data?.orderStatus?.discount.toString()??""}",style: AppStyles.backGround14Text,),
                             ],
                           ),
                           SizedBox(height: 5.h,),
@@ -153,7 +181,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text("Net Amount Payable",style: AppStyles.backGround14Text),
-                              Text("₹ ${viewBookingModel?.data?.netAmount.toString()??""}",style: AppStyles.backGround14Text,),
+                              Text("₹ ${viewBookingModel?.data?.orderStatus?.netAmount.toString()??""}",style: AppStyles.backGround14Text,),
                             ],
                           ),
                           SizedBox(height: 5.h,),
@@ -161,7 +189,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text("Payment Mode",style: AppStyles.backGround14Text),
-                              Text("Cash On Delivery",style: AppStyles.backGround14Text,),
+                              Text(viewBookingModel?.data?.orderStatus?.paymentMode.toString()??"",style: AppStyles.backGround14Text,),
                             ],
                           ),
                           SizedBox(height: 5.h,),
@@ -171,7 +199,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                               Text("Delivery Address ",style: AppStyles.backGround14Text),
                               SizedBox(
                                   width: 180.w,
-                                  child: Text(viewBookingModel?.data?.address.toString()??"",textAlign: TextAlign.end,style: AppStyles.backGround14Text,)),
+                                  child: Text(viewBookingModel?.data?.orderStatus?.address.toString()??"",textAlign: TextAlign.end,style: AppStyles.backGround14Text,)),
                             ],
                           ),
                           SizedBox(height: 5.h,),
@@ -185,7 +213,8 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                 ],
               ),
             ),
-          );
+          ):
+          const ListShimmer();
         },
       ),
     );

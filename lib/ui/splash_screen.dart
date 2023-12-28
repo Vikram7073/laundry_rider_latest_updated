@@ -1,10 +1,9 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:laundry_rider/common/constant/app_utils.dart';
 import 'package:laundry_rider/ui/bottom_bar.dart';
-
-import '../common/constant/color_constants.dart';
 import '../common/constant/image.dart';
 import 'login_screen.dart';
 
@@ -21,23 +20,37 @@ class _SplashScreenState extends State<SplashScreen> {
     // TODO: implement initState
     super.initState();
     next();
+    setFcmTokens();
   }
   next(){
     AppUtils().getUserLoggedIn().then((value) {
-      if(value==true){
+
         Future.delayed(const Duration(seconds: 2)).then((value){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> DashboardScreen()));
+          if(value==true) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => DashboardScreen()));
+          }
+          else{
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
+
+          }
         });
 
-      }else{
-        Future.delayed(const Duration(seconds: 2)).then((value){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
-        });
 
-      }
     });
 
   }
+
+
+//fcm set
+  setFcmTokens(){
+    FirebaseMessaging.instance.getToken().then((value) {
+      AppUtils().setFcm(value.toString());
+      print("this is fcm token ${value.toString()}");
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(

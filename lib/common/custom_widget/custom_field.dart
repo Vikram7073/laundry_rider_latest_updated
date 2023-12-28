@@ -7,6 +7,7 @@ import '../constant/font_style.dart';
 
 class CustomField extends StatelessWidget {
   TextInputType? keyboardType;
+  EdgeInsetsGeometry? contentPadding;
   String ?labelText;
   String? headingText;
   Color fillColor;
@@ -27,6 +28,7 @@ class CustomField extends StatelessWidget {
   double ?height;
   CustomField(
       {this.obscureText,
+        this.contentPadding,
       this.textCapitalization,
        this.validator,
       this.prefix,this.height,
@@ -81,7 +83,7 @@ class CustomField extends StatelessWidget {
           errorStyle: TextStyle(
             color: Colors.red,
           ),
-          contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+          contentPadding: contentPadding??EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
           enabledBorder: OutlineInputBorder(
             borderSide:
                  BorderSide(color: ColorConstants.greenLightColor.withOpacity(0.2)),

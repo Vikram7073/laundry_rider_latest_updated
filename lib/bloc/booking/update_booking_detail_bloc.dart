@@ -31,11 +31,11 @@ abstract class UpdateBookingDetailEvent{}
 
 class UpdateBookingDetailSubmitEvent extends UpdateBookingDetailEvent{
   int? bookId;
-  List ? itemId,itemQty;
-  String ? note;
+  List ? weight,quantity;
 
 
-  UpdateBookingDetailSubmitEvent(this.bookId,this.itemId,this.itemQty,this.note);
+
+  UpdateBookingDetailSubmitEvent(this.bookId,this.quantity,this.weight);
 }
 
 
@@ -48,7 +48,7 @@ class UpdateBookingDetailBloc extends Bloc<UpdateBookingDetailEvent,UpdateBookin
     on<UpdateBookingDetailSubmitEvent>((event, emit) async {
       emit(UpdateBookingDetailLoadingState());
       try{
-        var res = await authRepository.updateBookingDetail(bookId: event.bookId,itemId: event.itemId,itemQty: event.itemQty,note: event.note);
+        var res = await authRepository.updateBookingDetail(bookId: event.bookId,qty: event.quantity,weight: event.weight);
         if(res.isSuccess){
           emit(UpdateBookingDetailSuccessState(res.data));
         }

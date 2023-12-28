@@ -29,16 +29,8 @@ class _LoginWithOtpScreenState extends State<LoginWithOtpScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    setFcmToken();
     getFcmToken();
 
-  }
-
-  setFcmToken(){
-    FirebaseMessaging.instance.getToken().then((value) {
-      AppUtils().setFcm(value.toString());
-      print("this is fcm token ${value}");
-    });
   }
 
   Future getFcmToken(){

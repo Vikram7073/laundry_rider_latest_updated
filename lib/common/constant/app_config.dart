@@ -3,7 +3,8 @@ class AppConfig {
 
   //Production
   //static const host = 'https://jobsportal.lookingforgovtjob.com/api/';
-  static const host = 'https://laundry.btschool.in/api/bt.ly.23/rider/';
+ // static const host = 'https://laundry.btschool.in/api/bt.ly.23/rider/';
+  static const host = 'https://laundromart.live/api/bt.ly.23/rider/';
 
   // end point
   static const login = "login";

@@ -14,12 +14,11 @@ class CommonFunction{
         await showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-
         title: const Text('Are you sure ?'),
         content: const Text('Do you want to exit this app ?'),
         actions: <Widget>[
           Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 17,vertical: 0),
+            padding:  EdgeInsets.symmetric(horizontal: 17.w,vertical: 0.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,16 +29,16 @@ class CommonFunction{
                     Navigator.pop(context);
                   },
                     color: ColorConstants.greenLightColor,
-                    buttonHeight: 40,
+                    buttonHeight: 40.h,
                     text: "No",
                   textStyle: AppStyles.whiteColor16Text,),
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 20.w),
                 Expanded(
                   child: CustomButton(onTap: (){
                     exit(0);
                   },
-                    buttonHeight: 40,
+                    buttonHeight: 40.h,
                     textStyle: AppStyles.whiteColor16Text,
 
                     text: "Yes",),

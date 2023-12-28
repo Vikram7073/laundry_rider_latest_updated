@@ -172,16 +172,16 @@ Future<Result<ViewBookingModel>> bookingView({int? bookId}) async =>
 
 
   Future<Result<UpdateBookingDetailModel>> updateBookingDetail({
-    String?note,
+
     int? bookId,
-    List ?itemId,itemQty
+    List ?qty,weight
 
   }) async => safeCall(AuthService(await dio).updateOrder("application/json",
       {
         "bookId":bookId,
-        "itemId":itemId,
-        "itemQty" :itemQty,
-        "note":note,
+        "qty":qty,
+        "weight" :weight,
+
 
       }
   ));

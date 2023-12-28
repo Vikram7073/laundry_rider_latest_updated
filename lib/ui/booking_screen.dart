@@ -42,7 +42,7 @@ class _BookingScreenState extends State<BookingScreen> {
           child: Column(
             children: [
               SizedBox(
-                height: 40,
+                height: 40.h,
                 child: TabBar(
                   unselectedLabelColor: ColorConstants.backGroundColor,
                   unselectedLabelStyle: AppStyles.backGround14Text,
@@ -53,7 +53,7 @@ class _BookingScreenState extends State<BookingScreen> {
                     indicatorPadding: EdgeInsets.zero,
                     indicator: BoxDecoration(
                       color: ColorConstants.themeColor,
-                    border: Border.all(color:ColorConstants.backgroundColor.withOpacity(0.5),width: 2),
+                    border: Border.all(color:ColorConstants.backgroundColor.withOpacity(0.5),width: 2.w),
                     borderRadius: BorderRadius.circular(15.r),
                   ),
                     labelColor: ColorConstants.whiteColor,

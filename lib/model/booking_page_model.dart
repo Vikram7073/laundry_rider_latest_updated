@@ -67,6 +67,7 @@ class Pending {
     required this.late,
     required this.long,
     required this.token,
+    required this.proccess,
   });
   late final int bookId;
   late final String bookingId;
@@ -74,9 +75,10 @@ class Pending {
   late final String time;
   late final String address;
   late final String deliverTime;
-  late final String late;
-  late final String long;
+  late final double late;
+  late final double long;
   late final String token;
+  late final String proccess;
 
   Pending.fromJson(Map<String, dynamic> json){
     bookId = json['bookId'];
@@ -88,6 +90,7 @@ class Pending {
     late = json['late'];
     long = json['long'];
     token = json['token'];
+    proccess = json['proccess'];
   }
 
   Map<String, dynamic> toJson() {
@@ -101,6 +104,7 @@ class Pending {
     _data['late'] = late;
     _data['long'] = long;
     _data['token'] = token;
+    _data['proccess'] = proccess;
     return _data;
   }
 }
@@ -116,6 +120,10 @@ class Accept {
     required this.late,
     required this.long,
     required this.token,
+    required this.userName,
+    required this.contact,
+    required this.proccess,
+    required this.verifyPin,
   });
   late final int bookId;
   late final String bookingId;
@@ -123,9 +131,13 @@ class Accept {
   late final String time;
   late final String address;
   late final String deliverTime;
-  late final String late;
-  late final String long;
+  late final double late;
+  late final double long;
   late final String token;
+  late final String userName;
+  late final String contact;
+  late final String proccess;
+  late final int verifyPin;
 
   Accept.fromJson(Map<String, dynamic> json){
     bookId = json['bookId'];
@@ -137,6 +149,10 @@ class Accept {
     late = json['late'];
     long = json['long'];
     token = json['token'];
+    userName = json['userName'];
+    contact = json['contact'];
+    proccess = json['proccess'];
+    verifyPin = json['verifyPin'];
   }
 
   Map<String, dynamic> toJson() {
@@ -150,6 +166,10 @@ class Accept {
     _data['late'] = late;
     _data['long'] = long;
     _data['token'] = token;
+    _data['userName'] = userName;
+    _data['contact'] = contact;
+    _data['proccess'] = proccess;
+    _data['verifyPin'] = verifyPin;
     return _data;
   }
 }
@@ -167,6 +187,7 @@ class Ongoing {
     required this.long,
     required this.token,
     required this.pickUpStatus,
+    required this.proccess,
   });
   late final int bookId;
   late final String bookingId;
@@ -175,10 +196,11 @@ class Ongoing {
   late final String address;
   late final String deliverTime;
   late final int contact;
-  late final String late;
-  late final String long;
+  late final double late;
+  late final double long;
   late final String token;
   late final bool pickUpStatus;
+  late final String proccess;
 
   Ongoing.fromJson(Map<String, dynamic> json){
     bookId = json['bookId'];
@@ -192,6 +214,7 @@ class Ongoing {
     long = json['long'];
     token = json['token'];
     pickUpStatus = json['pickUpStatus'];
+    proccess = json['proccess'];
   }
 
   Map<String, dynamic> toJson() {
@@ -207,6 +230,7 @@ class Ongoing {
     _data['long'] = long;
     _data['token'] = token;
     _data['pickUpStatus'] = pickUpStatus;
+    _data['proccess'] = proccess;
     return _data;
   }
 }
@@ -222,6 +246,8 @@ class Pickup {
     required this.late,
     required this.long,
     required this.token,
+    required this.userMobileNo,
+    required this.proccess,
   });
   late final int bookId;
   late final String bookingId;
@@ -229,9 +255,11 @@ class Pickup {
   late final String time;
   late final String address;
   late final String deliverTime;
-  late final String late;
-  late final String long;
+  late final double late;
+  late final double long;
   late final String token;
+  late final String userMobileNo;
+  late final String proccess;
 
   Pickup.fromJson(Map<String, dynamic> json){
     bookId = json['bookId'];
@@ -243,6 +271,8 @@ class Pickup {
     late = json['late'];
     long = json['long'];
     token = json['token'];
+    userMobileNo = json['userMobileNo'];
+    proccess = json['proccess'];
   }
 
   Map<String, dynamic> toJson() {
@@ -256,6 +286,8 @@ class Pickup {
     _data['late'] = late;
     _data['long'] = long;
     _data['token'] = token;
+    _data['userMobileNo'] = userMobileNo;
+    _data['proccess'] = proccess;
     return _data;
   }
 }
@@ -268,6 +300,7 @@ class Deliver {
     required this.time,
     required this.address,
     required this.deliverTime,
+    required this.proccess,
   });
   late final int bookId;
   late final String bookingId;
@@ -275,6 +308,7 @@ class Deliver {
   late final String time;
   late final String address;
   late final String deliverTime;
+  late final String proccess;
 
   Deliver.fromJson(Map<String, dynamic> json){
     bookId = json['bookId'];
@@ -283,6 +317,7 @@ class Deliver {
     time = json['time'];
     address = json['address'];
     deliverTime = json['deliverTime'];
+    proccess = json['proccess'];
   }
 
   Map<String, dynamic> toJson() {
@@ -293,6 +328,7 @@ class Deliver {
     _data['time'] = time;
     _data['address'] = address;
     _data['deliverTime'] = deliverTime;
+    _data['proccess'] = proccess;
     return _data;
   }
 }
